@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitJoy - Interactive Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tab.active {
+            border-bottom: 2px solid #4f46e5;
+            color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-indigo-600 mb-2">HabitJoy</h1>
+            <p class="text-lg text-gray-600">A full-stack habit tracking application with mood monitoring and payment integration</p>
+        </header>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Application Overview</h2>
+            <p class="mb-4">HabitJoy is a modern web application built with React, Node.js, Express, and MongoDB. It allows users to track their habits, monitor their mood, journal their thoughts, and visualize their progress over time.</p>
+        </div>
+
+        <!-- ✅ Fixed Tabs for Features -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+            <div class="flex border-b mb-4">
+                <div class="tab active" data-tab="auth">Authentication</div>
+                <div class="tab" data-tab="mood">Mood Tracking</div>
+                <div class="tab" data-tab="habits">Habit Tracking</div>
+                <div class="tab" data-tab="stats">Statistics</div>
+                <div class="tab" data-tab="payment">Payment Integration</div>
+            </div>
+
+            <!-- ✅ Corrected Tab Content IDs -->
+            <div class="tab-content active" id="auth">
+                <h3 class="text-xl font-semibold mb-3">User Authentication</h3>
+                <p class="mb-3">Secure JWT-based authentication with email verification and password reset.</p>
+                <div class="code-block">// Corrected example code here...</div>
+            </div>
+
+            <div class="tab-content" id="mood">
+                <h3 class="text-xl font-semibold mb-3">Mood Tracking</h3>
+                <p class="mb-3">Track your daily mood and add notes to help identify patterns.</p>
+                <div class="code-block">// Mood tracking code...</div>
+            </div>
+
+            <div class="tab-content" id="habits">
+                <h3 class="text-xl font-semibold mb-3">Habit Tracking</h3>
+                <p class="mb-3">Track your daily habits and build streaks for consistent practice.</p>
+                <div class="code-block">// Habit tracking example...</div>
+            </div>
+
+            <div class="tab-content" id="stats">
+                <h3 class="text-xl font-semibold mb-3">Statistics & Visualization</h3>
+                <p class="mb-3">Visualize your mood and habit data over time.</p>
+                <div class="code-block">// Stats data visualization code...</div>
+            </div>
+
+            <div class="tab-content" id="payment">
+                <h3 class="text-xl font-semibold mb-3">Payment Integration</h3>
+                <p class="mb-3">Stripe integration for premium subscriptions.</p>
+                <div class="code-block">// Payment processing code...</div>
+            </div>
+        </div>
+
+        <!-- ✅ Fixed JavaScript Tab Switching Logic -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.tab');
+                const contents = document.querySelectorAll('.tab-content');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        // Remove active class from all tabs and content
+                        tabs.forEach(t => t.classList.remove('active'));
+                        contents.forEach(c => c.classList.remove('active'));
+
+                        // Add active class to the clicked tab and its content
+                        this.classList.add('active');
+                        const tabId = this.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
