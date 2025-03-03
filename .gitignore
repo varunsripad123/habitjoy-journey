@@ -28,4 +28,4 @@ yarn-error.log*
 # Cache files
 .npm-cache/
 .backend.pid
-.frontend.pid
+.frontend.pidbackend/node_modules/.cache/
